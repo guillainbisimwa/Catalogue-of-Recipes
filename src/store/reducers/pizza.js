@@ -1,9 +1,9 @@
 const CREATE_PIZZA = 'CREATE_PIZZA';
 
-const pizzaReducer = (state = [], { type, payload }) => {
-  switch (type) {
+const pizzaReducer = (state = {}, action) => {
+  switch (action.type) {
     case CREATE_PIZZA:
-      return [...state, payload];
+      return action.payload;
     default:
       return state;
   }
