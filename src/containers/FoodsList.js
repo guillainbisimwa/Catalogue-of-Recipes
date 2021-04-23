@@ -7,7 +7,7 @@ import {
   GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles,
 } from '@material-ui/core';
 import { useEffect } from 'react';
-import getPizza from '../store/actions';
+import { getPizza } from '../store/actions';
 
 const useStyles = makeStyles(() => ({
   root: {
