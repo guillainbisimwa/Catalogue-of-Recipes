@@ -7,7 +7,7 @@ import {
   GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles,
 } from '@material-ui/core';
 import { useEffect } from 'react';
-import { getPizza } from '../store/actions';
+import { getPizza, getBurger } from '../store/actions';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -32,8 +32,11 @@ const FoodsList = () => {
   const state = useSelector((state) => state);
 
   useEffect(() => dispatch(getPizza()), []);
+  useEffect(() => dispatch(getBurger()), []);
 
   const classes = useStyles();
+  console.log(state);
+
   console.log(Object.entries(state.pizza));
   if (Object.entries(state.pizza).length !== 0) {
     console.log(Object.entries(state.pizza.photos));
@@ -56,7 +59,7 @@ const FoodsList = () => {
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div">December</ListSubheader>
         </GridListTile>
-        {state.pizza.photos.map((image) => (
+        {state.burger.photos.map((image) => (
           <GridListTile key={image.id}>
             <img src={image.src.landscape} alt={image.title} />
             <GridListTileBar
