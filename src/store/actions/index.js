@@ -1,22 +1,24 @@
 import axios from 'axios';
 
-require('dotenv').config();
-
 const options = {
   method: 'GET',
-  url: process.env.SERVER_URL,
+  url: process.env.REACT_APP_SERVER_URL,
   params: {
-    query: 'pizza', locale: 'en-US', per_page: '5', page: '1', orientation: 'landscape',
+    query: 'pizza', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
   },
-  headers: process.env.HEADER,
+  headers: {
+    authorization: process.env.REACT_APP_AUTH,
+    'x-rapidapi-key': process.env.REACT_APP_KEY,
+    'x-rapidapi-host': process.env.REACT_APP_HOST,
+  },
 };
 
 const getPizza = () => (dispatch) => {
-  axios.request(options).then((response) => {
+  axios(options).then((response) => {
     if (response) {
       dispatch(
         {
-          type: 'PIZZA',
+          type: 'CREATE_PIZZA',
           payload: response.data,
         },
       );
