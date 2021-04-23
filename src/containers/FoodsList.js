@@ -7,7 +7,7 @@ import {
   GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles,
 } from '@material-ui/core';
 import { useEffect } from 'react';
-import { getPizza, getBurger } from '../store/actions';
+import { getPizza, getBurger, getSteak } from '../store/actions';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -33,6 +33,7 @@ const FoodsList = () => {
 
   useEffect(() => dispatch(getPizza()), []);
   useEffect(() => dispatch(getBurger()), []);
+  useEffect(() => dispatch(getSteak()), []);
 
   const classes = useStyles();
   console.log(state);
@@ -59,7 +60,7 @@ const FoodsList = () => {
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div">December</ListSubheader>
         </GridListTile>
-        {state.burger.photos.map((image) => (
+        {state.steak.photos.map((image) => (
           <GridListTile key={image.id}>
             <img src={image.src.landscape} alt={image.title} />
             <GridListTileBar

@@ -60,11 +60,11 @@ export const getBurger = () => (dispatch) => {
 };
 
 export const getSteak = () => (dispatch) => {
-  const optionsBurger = options;
-  optionsBurger.params = {
-    query: 'steak', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
+  const optionsSteak = options;
+  optionsSteak.params = {
+    query: 'meat', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
   };
-  axios(optionsBurger).then((response) => {
+  axios(optionsSteak).then((response) => {
     if (response) {
       dispatch(
         {
