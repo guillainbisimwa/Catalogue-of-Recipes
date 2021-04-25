@@ -4,7 +4,7 @@ import RestaurantIcon from '@material-ui/icons/Restaurant';
 import {
   Box,
   CircularProgress,
-  GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles,
+  GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles, Typography,
 } from '@material-ui/core';
 import { useEffect } from 'react';
 import { getPizza, getBurger, getSteak } from '../store/actions';
@@ -22,8 +22,19 @@ const useStyles = makeStyles(() => ({
   gridList: {
     width: '100%',
   },
+  title: {
+    display: 'flex',
+  },
+  iconTop: {
+    background: '#d64646',
+    color: '#eeeeee',
+    marginRight: '10px',
+    marginBottom: '10px',
+  },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
+    background: 'rgba(255, 255, 255, 0.14)',
+
   },
 }));
 
@@ -36,13 +47,12 @@ const FoodsList = () => {
   useEffect(() => dispatch(getSteak()), []);
 
   const classes = useStyles();
-  console.log(state);
 
-  console.log(Object.entries(state.pizza));
-  if (Object.entries(state.pizza).length !== 0) {
-    console.log(Object.entries(state.pizza.photos));
-    console.log('------');
-    console.log(state);
+  let myfoods = [];
+  // eslint-disable-next-line max-len
+  if (Object.entries(state.pizza).length !== 0 && Object.entries(state.burger).length !== 0 && Object.entries(state.steak).length !== 0) {
+    // eslint-disable-next-line max-len
+    myfoods = Object.entries(state.pizza.photos).concat(Object.entries(state.burger.photos), Object.entries(state.steak.photos));
   }
 
   return (
@@ -56,18 +66,23 @@ const FoodsList = () => {
             </div>
 
           </Box>
-            : <GridList cellHeight={280} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
+            : <GridList cols={4} cellHeight={280} className={classes.gridList}>
+        <GridListTile key="Subheader" cols={4} style={{ height: 'auto' }}>
+          <ListSubheader component="div" className={classes.title}>
+            <IconButton className={classes.iconTop}>
+              <RestaurantIcon />
+            </IconButton>
+            <Typography variant="h4" component="h4">Catalogue of Recipes</Typography>
+          </ListSubheader>
         </GridListTile>
-        {state.steak.photos.map((image) => (
-          <GridListTile key={image.id}>
-            <img src={image.src.landscape} alt={image.title} />
+        {myfoods.map((image) => (
+          <GridListTile key={image[1].id}>
+            <img src={image[1].src.landscape} alt={image[1].title} />
             <GridListTileBar
-              title={image.photographer}
-              subtitle={<span>by: {image.photographer}</span>}
+              title={image[1].photographer}
+              subtitle={<span>by: {image[1].photographer}</span>}
               actionIcon={
-                <IconButton aria-label={`info about ${image.title}`} className={classes.icon}>
+                <IconButton aria-label={`info about ${image[1].title}`} className={classes.icon}>
                   <RestaurantIcon />
                 </IconButton>
               }
