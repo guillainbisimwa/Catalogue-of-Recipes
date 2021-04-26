@@ -1,13 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
 import RestaurantIcon from '@material-ui/icons/Restaurant';
+import PropTypes from 'prop-types';
 
 import {
   Box,
   CircularProgress,
   GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles, Typography,
 } from '@material-ui/core';
-import { useEffect } from 'react';
-import { getPizza, getBurger, getSteak } from '../store/actions';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -38,28 +36,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FoodsList = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-
-  useEffect(() => dispatch(getPizza()), []);
-  useEffect(() => dispatch(getBurger()), []);
-  useEffect(() => dispatch(getSteak()), []);
-
+const FoodsList = (foodItems) => {
   const classes = useStyles();
-
-  let myfoods = [];
-  // eslint-disable-next-line max-len
-  if (Object.entries(state.pizza).length !== 0 && Object.entries(state.burger).length !== 0 && Object.entries(state.steak).length !== 0) {
-    // eslint-disable-next-line max-len
-    myfoods = Object.entries(state.pizza.photos).concat(Object.entries(state.burger.photos), Object.entries(state.steak.photos));
-  }
-
   return (
     <Box p={5}>
       <div className={classes.root}>
       {
-          Object.entries(state.pizza).length === 0
+          foodItems.foodItems.length === 0
             ? <Box>
             <div className={classes.circularProgress}>
               <CircularProgress size={80} color="secondary" />
@@ -75,7 +58,7 @@ const FoodsList = () => {
             <Typography variant="h4" component="h4">Catalogue of Recipes</Typography>
           </ListSubheader>
         </GridListTile>
-        {myfoods.map((image) => (
+        {foodItems.foodItems.map((image) => (
           <GridListTile key={image[1].id}>
             <img src={image[1].src.landscape} alt={image[1].title} />
             <GridListTileBar
@@ -96,6 +79,10 @@ const FoodsList = () => {
     </div>
     </Box>
   );
+};
+
+FoodsList.propTypes = {
+  foodItems: PropTypes.array.isRequired,
 };
 
 export default FoodsList;

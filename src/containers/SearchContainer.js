@@ -18,7 +18,6 @@ const SearchContainer = ({ filterHandler }) => {
           select
           fullWidth
           label="Select the category from the drop-down menu"
-          value='All'
           variant="outlined"
         >
           {categoryList}
