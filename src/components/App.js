@@ -9,9 +9,6 @@ import {
 const App = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  // const statePizza = useSelector((state) => state.pizza);
-  // const stateBurger = useSelector((state) => state.burger);
-  // const stateSteak = useSelector((state) => state.steak);
   const categories = useSelector((state) => state.filter);
 
   useEffect(() => dispatch(getPizza()), []);
