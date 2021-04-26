@@ -76,9 +76,7 @@ const FoodsList = (foodItems) => {
           </GridListTile>
         ))}
       </GridList>
-
-        }
-
+      }
     </div>
     </Box>
   );
