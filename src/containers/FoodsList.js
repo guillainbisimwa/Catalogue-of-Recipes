@@ -6,6 +6,7 @@ import {
   CircularProgress,
   GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, makeStyles, Typography,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -61,15 +62,17 @@ const FoodsList = (foodItems) => {
         {foodItems.foodItems.map((image) => (
           <GridListTile key={image[1].id}>
             <img src={image[1].src.landscape} alt={image[1].title} />
-            <GridListTileBar
-              title={image[1].photographer}
-              subtitle={<span>by: {image[1].photographer}</span>}
-              actionIcon={
-                <IconButton aria-label={`info about ${image[1].title}`} className={classes.icon}>
-                  <RestaurantIcon />
-                </IconButton>
-              }
-            />
+            <Link to={`/details/${image[1].id}`}>
+              <GridListTileBar
+                title={image[1].photographer}
+                subtitle={<span>by: {image[1].photographer}</span>}
+                actionIcon={
+                  <IconButton aria-label={`info about ${image[1].title}`} className={classes.icon}>
+                    <RestaurantIcon />
+                  </IconButton>
+                }
+              />
+            </Link>
           </GridListTile>
         ))}
       </GridList>
