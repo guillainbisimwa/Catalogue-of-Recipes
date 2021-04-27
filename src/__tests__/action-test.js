@@ -1,6 +1,6 @@
 import moxios from 'moxios';
 import makeMockStore from '../../Utils';
-import { getPizza } from '../store/actions';
+import { changeFilter, getPizza } from '../store/actions';
 
 const expectedState = [{
   title: 'Example title 1',
@@ -25,7 +25,7 @@ const apiUrl = {
   params: {
     query: 'pizza',
     locale: 'en-US',
-    per_page: '6',
+    per_page: '1',
     page: '1',
     orientation: 'landscape',
   },
@@ -39,7 +39,7 @@ describe('getPizza', () => {
     moxios.uninstall();
   });
 
-  test('Store is updated correctly', () => {
+  it('Store is updated correctly', () => {
     moxios.wait(() => {
       moxios.stubOnce('GET', apiUrl, {
         status: 200,
@@ -51,5 +51,17 @@ describe('getPizza', () => {
       const newState = store.getState();
       expect(Object.entries(newState)).toEqual(Object.entries(expectedState));
     });
+  });
+
+  it('should return an object', () => {
+    expect(changeFilter('Burger')).toEqual({ type: 'CHANGE_FILTER', payload: 'Burger' });
+  });
+
+  it('should the filtered item', () => {
+    expect(changeFilter('Burger')).toEqual({ type: 'CHANGE_FILTER', payload: 'Burger' });
+  });
+
+  it('should not return an array', () => {
+    expect(changeFilter('not an array')).not.toEqual(['CHANGE_FILTER', 'not an array']);
   });
 });
