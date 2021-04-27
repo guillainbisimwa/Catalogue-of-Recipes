@@ -10,7 +10,7 @@ const options = {
   },
 };
 
-export const getPizza = () => (dispatch) => {
+export const getPizza = () => async (dispatch) => {
   const optionsPizza = options;
   optionsPizza.params = {
     query: 'pizza', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
@@ -32,7 +32,7 @@ export const getPizza = () => (dispatch) => {
   ));
 };
 
-export const getBurger = () => (dispatch) => {
+export const getBurger = () => async (dispatch) => {
   const optionsBurger = options;
   optionsBurger.params = {
     query: 'burger', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
@@ -54,7 +54,7 @@ export const getBurger = () => (dispatch) => {
   ));
 };
 
-export const getSteak = () => (dispatch) => {
+export const getSteak = () => async (dispatch) => {
   const optionsSteak = options;
   optionsSteak.params = {
     query: 'meat', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
