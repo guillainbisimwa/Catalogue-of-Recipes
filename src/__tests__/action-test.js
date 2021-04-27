@@ -1,6 +1,6 @@
 import moxios from 'moxios';
 import makeMockStore from '../../Utils';
-import { changeFilter, getPizza } from '../store/actions';
+import { changeFilter, getBurger, getPizza, getSteak } from '../store/actions';
 
 const expectedState = [{
   title: 'Example title 1',
@@ -64,4 +64,19 @@ describe('getPizza', () => {
   it('should not return an array', () => {
     expect(changeFilter('not an array')).not.toEqual(['CHANGE_FILTER', 'not an array']);
   });
+
+  it('should return an empty array pizza', () => store.dispatch(getPizza())
+    .then(() => {
+      expect(store.getActions()).toEqual([]);
+    }));
+
+  it('should\'t return an empty object of burger', () => store.dispatch(getBurger())
+    .then(() => {
+      expect(store.getActions()).not.toEqual({ Test: 'Club' });
+    }));
+
+  it('should return an empty array steak', () => store.dispatch(getSteak())
+    .then(() => {
+      expect(store.getActions()).toEqual([]);
+    }));
 });
