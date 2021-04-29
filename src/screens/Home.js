@@ -1,42 +1,19 @@
 import {
   AppBar, CssBaseline, Divider, Drawer, List, ListItem,
-  ListItemIcon, ListItemText, makeStyles, Toolbar, Typography,
+  ListItemIcon, ListItemText, Toolbar, Typography,
 } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import SyncIcon from '@material-ui/icons/Sync';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SettingsIcon from '@material-ui/icons/Settings';
 import App from '../components/App';
+import styles from '../asset/styles';
 
-const drawerWidth = 300;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerContainer: {
-    overflow: 'auto',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
 const Home = () => {
-  const classes = useStyles();
+  const classes = styles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.rootDetails}>
     <CssBaseline />
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>

@@ -1,7 +1,7 @@
 import {
   AppBar,
   Avatar, Box, Card, CardContent, CardHeader, CardMedia, CssBaseline, Divider,
-  Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, makeStyles, Toolbar, Typography,
+  Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography,
 } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,49 +12,7 @@ import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SettingsIcon from '@material-ui/icons/Settings';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { getBurger, getPizza, getSteak } from '../redux/actions';
-
-const drawerWidth = 300;
-
-const useStyles = makeStyles((theme) => ({
-  main: {
-    maxWidth: '100%',
-    margin: 'auto',
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%',
-  },
-  avatar: {
-    backgroundColor: '#aa0000',
-  },
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerContainer: {
-    overflow: 'auto',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  menuButton: {
-    color: '#ffffff',
-  },
-  link: {
-    color: '#000000',
-    'text-decoration': 'none',
-  },
-}));
+import styles from '../asset/styles';
 
 const Details = () => {
   const { id } = useParams();
@@ -66,7 +24,7 @@ const Details = () => {
   useEffect(() => dispatch(getBurger()), []);
   useEffect(() => dispatch(getSteak()), []);
 
-  const classes = useStyles();
+  const classes = styles();
 
   let foods = [];
   foods = Object.entries(state.pizza.photos)
@@ -74,7 +32,7 @@ const Details = () => {
   const myFoods = foods.find((product) => product[1].id.toString() === id);
 
   return (
-    <div className={classes.root}>
+    <div className={classes.rootDetails}>
     <CssBaseline />
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
