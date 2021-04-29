@@ -1,7 +1,7 @@
 import {
   AppBar,
-  // eslint-disable-next-line max-len
-  Avatar, Box, Card, CardContent, CardHeader, CardMedia, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, makeStyles, Toolbar, Typography,
+  Avatar, Box, Card, CardContent, CardHeader, CardMedia, CssBaseline, Divider,
+  Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, makeStyles, Toolbar, Typography,
 } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -69,8 +69,8 @@ const Details = () => {
   const classes = useStyles();
 
   let foods = [];
-  // eslint-disable-next-line max-len
-  foods = Object.entries(state.pizza.photos).concat(Object.entries(state.burger.photos), Object.entries(state.steak.photos));
+  foods = Object.entries(state.pizza.photos)
+    .concat(Object.entries(state.burger.photos), Object.entries(state.steak.photos));
   const myFoods = foods.find((product) => product[1].id.toString() === id);
 
   return (

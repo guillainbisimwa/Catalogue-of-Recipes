@@ -2,7 +2,7 @@ import moxios from 'moxios';
 import makeMockStore from '../../Utils';
 import {
   changeFilter, getBurger, getPizza, getSteak,
-} from '../store/actions';
+} from '../redux/actions';
 
 const expectedState = [{
   title: 'Example title 1',

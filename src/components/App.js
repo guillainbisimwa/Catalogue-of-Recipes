@@ -16,11 +16,11 @@ const App = () => {
   useEffect(() => dispatch(getSteak()), []);
 
   let myFoods = [];
-  // eslint-disable-next-line max-len
-  if (Object.entries(state.pizza).length !== 0 && Object.entries(state.burger).length !== 0 && Object.entries(state.steak).length !== 0) {
+  if (Object.entries(state.pizza).length !== 0
+  && Object.entries(state.burger).length !== 0 && Object.entries(state.steak).length !== 0) {
     if (categories === 'All') {
-      // eslint-disable-next-line max-len
-      myFoods = Object.entries(state.pizza.photos).concat(Object.entries(state.burger.photos), Object.entries(state.steak.photos));
+      myFoods = Object.entries(state.pizza.photos)
+        .concat(Object.entries(state.burger.photos), Object.entries(state.steak.photos));
     } else if (categories === 'Pizza') {
       myFoods = Object.entries(state.pizza.photos);
     } else if (categories === 'Burger') {

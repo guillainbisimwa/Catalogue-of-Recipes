@@ -1,7 +1,7 @@
-import pizzaReducer from '../store/reducers/pizza';
-import burgerReducer from '../store/reducers/burger';
-import steakReducer from '../store/reducers/steak';
-import filterReducer from '../store/reducers/filter';
+import pizzaReducer from '../redux/reducers/pizza';
+import burgerReducer from '../redux/reducers/burger';
+import steakReducer from '../redux/reducers/steak';
+import filterReducer from '../redux/reducers/filter';
 
 describe('mainReducer', () => {
   describe('pizzaReducer undefined case', () => {

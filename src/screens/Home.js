@@ -1,6 +1,6 @@
 import {
-  // eslint-disable-next-line max-len
-  AppBar, CssBaseline, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles, Toolbar, Typography,
+  AppBar, CssBaseline, Divider, Drawer, List, ListItem,
+  ListItemIcon, ListItemText, makeStyles, Toolbar, Typography,
 } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import SyncIcon from '@material-ui/icons/Sync';
