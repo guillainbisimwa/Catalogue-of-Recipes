@@ -4,7 +4,7 @@ import FoodsList from '../containers/FoodsList';
 import SearchContainer from '../containers/SearchContainer';
 import {
   getPizza, getBurger, getSteak, changeFilter,
-} from '../store/actions';
+} from '../redux/actions';
 
 const App = () => {
   const dispatch = useDispatch();

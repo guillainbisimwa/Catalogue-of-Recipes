@@ -11,7 +11,7 @@ import SyncIcon from '@material-ui/icons/Sync';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SettingsIcon from '@material-ui/icons/Settings';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
-import { getBurger, getPizza, getSteak } from '../store/actions';
+import { getBurger, getPizza, getSteak } from '../redux/actions';
 
 const drawerWidth = 300;
 
