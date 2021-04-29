@@ -4,7 +4,7 @@
 
 Catalog-of-Recipes is a front-end application that will help you retrieve food images from [Pexels Image & Video API](https://www.pexels.com/api/), filter and access details of unique food.
 
-<img src="./src/img/screenshot.gif" alt="Screenshot" style="margin: auto; display: block">
+<img src="./src/assets/img/screenshot.gif" alt="Screenshot" style="margin: auto; display: block">
 
 ## Built With
 

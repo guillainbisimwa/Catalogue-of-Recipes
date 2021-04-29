@@ -7,7 +7,7 @@ import {
   GridList, GridListTile, GridListTileBar, IconButton, ListSubheader, Typography,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import styles from '../asset/styles';
+import styles from '../assets/styles';
 
 const FoodsList = (foodItems) => {
   const classes = styles();

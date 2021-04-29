@@ -7,7 +7,7 @@ import SyncIcon from '@material-ui/icons/Sync';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SettingsIcon from '@material-ui/icons/Settings';
 import App from '../components/App';
-import styles from '../asset/styles';
+import styles from '../assets/styles';
 
 const Home = () => {
   const classes = styles();

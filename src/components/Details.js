@@ -12,7 +12,7 @@ import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SettingsIcon from '@material-ui/icons/Settings';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { getBurger, getPizza, getSteak } from '../redux/actions';
-import styles from '../asset/styles';
+import styles from '../assets/styles';
 
 const Details = () => {
   const { id } = useParams();
