@@ -57,6 +57,21 @@ npm install
 
 ```
 
+### API key Integration
+
+Create a `.env` file in the root directory of this project. Add
+environment-specific variables on new lines in the form of `NAME=VALUE`.
+For example:
+
+REACT_APP_SERVER_URL=...
+REACT_APP_AUTH=...
+REACT_APP_KEY=...
+REACT_APP_HOST=...
+
+You can find all your values from [Pexels Image & Video API](https://www.pexels.com/api/) and [rapidapi](https://rapidapi.com/pexels-pexels-default/api/Pexels). Just create an account a request for the API key.
+
+The environment variables from a `.env` file are loaded into [`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env) and used in actions file located in `Catalogue-of-Recipes/src/redux/actions/index.js`.
+
 ### Usage
 
 In order to run this project locally, just type this command:
