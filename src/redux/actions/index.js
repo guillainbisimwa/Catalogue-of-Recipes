@@ -1,21 +1,16 @@
 import axios from 'axios';
 
-const REACT_APP_SERVER_URL = 'https://pexelsdimasv1.p.rapidapi.com/v1/search';
-const REACT_APP_AUTH = '563492ad6f91700001000001fbafab0137f44501a86b52d3698db07d';
-const REACT_APP_KEY = '2395707499mshec9ceae70360b03p157476jsn0a0ab52f0884';
-const REACT_APP_HOST = 'PexelsdimasV1.p.rapidapi.com';
-
 const options = {
   method: 'GET',
-  url: REACT_APP_SERVER_URL,
+  url: process.env.REACT_APP_SERVER_URL,
   headers: {
-    authorization: REACT_APP_AUTH,
-    'x-rapidapi-key': REACT_APP_KEY,
-    'x-rapidapi-host': REACT_APP_HOST,
+    authorization: process.env.REACT_APP_AUTH,
+    'x-rapidapi-key': process.env.REACT_APP_KEY,
+    'x-rapidapi-host': process.env.REACT_APP_HOST,
   },
 };
 
-export const getPizza = () => (dispatch) => {
+export const getPizza = () => async (dispatch) => {
   const optionsPizza = options;
   optionsPizza.params = {
     query: 'pizza', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
@@ -37,7 +32,7 @@ export const getPizza = () => (dispatch) => {
   ));
 };
 
-export const getBurger = () => (dispatch) => {
+export const getBurger = () => async (dispatch) => {
   const optionsBurger = options;
   optionsBurger.params = {
     query: 'burger', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
@@ -59,7 +54,7 @@ export const getBurger = () => (dispatch) => {
   ));
 };
 
-export const getSteak = () => (dispatch) => {
+export const getSteak = () => async (dispatch) => {
   const optionsSteak = options;
   optionsSteak.params = {
     query: 'meat', locale: 'en-US', per_page: '6', page: '1', orientation: 'landscape',
