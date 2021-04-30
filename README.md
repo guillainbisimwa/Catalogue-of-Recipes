@@ -71,7 +71,7 @@ REACT_APP_HOST=...
 
 ```
 
-You can find all your values from [Pexels Image & Video API](https://www.pexels.com/api/) and [rapidapi](https://rapidapi.com/pexels-pexels-default/api/Pexels). Just create an account a request for the API key.
+You can find all your values from [Pexels Image & Video API](https://www.pexels.com/api/) and [rapidapi](https://rapidapi.com/pexels-pexels-default/api/Pexels). Simply create an account and request an API key.
 
 The environment variables from a `.env` file are loaded into [`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env) and used in actions file located in `Catalogue-of-Recipes/src/redux/actions/index.js`.
 
